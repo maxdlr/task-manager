@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {TaskStateEnum} from "../../model/taskStateEnum";
+import {Component, Input, OnInit} from '@angular/core';
 import {Task} from "../../model/Task";
 
 @Component({
@@ -10,9 +9,12 @@ import {Task} from "../../model/Task";
   styleUrl: './task.component.scss'
 })
 export class TaskComponent implements OnInit {
-  task: Task | undefined = undefined;
+  @Input({required: true}) task: Task;
+
+  constructor() {
+    this.task = new Task();
+  }
 
   ngOnInit() {
-    this.task = new Task();
   }
 }

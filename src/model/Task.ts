@@ -1,13 +1,17 @@
 import {TaskStateEnum} from "./taskStateEnum";
 
 export class Task {
-  public title: string;
-  public description: string;
-  public state: TaskStateEnum;
+  public title: string | undefined;
+  public description: string | undefined;
+  public state: TaskStateEnum | undefined;
 
-  constructor() {
-    this.title = 'my task title';
-    this.description = 'my task description';
-    this.state = TaskStateEnum.IN_PROGRESS;
+  constructor(
+    title: string | undefined = undefined,
+    description: string | undefined = undefined,
+    state: TaskStateEnum | undefined = undefined,
+  ) {
+    this.title = title;
+    this.description = description;
+    this.state = state;
   }
 }
