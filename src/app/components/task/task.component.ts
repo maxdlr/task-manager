@@ -1,12 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from '../../model/Task';
-import { TaskStateEnum } from '../../model/taskStateEnum';
+import { Task } from '../../../model/Task';
+import { TaskStateEnum } from '../../../model/taskStateEnum';
 import { NgStyle } from '@angular/common';
+import { FormatDatePipe } from '../../pipes/date-format/date-format.pipe';
+import { ToUpperCasePipe } from '../../pipes/case/to-upper-case.pipe';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgStyle, FormatDatePipe, FormatDatePipe, ToUpperCasePipe],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
 })
@@ -15,7 +17,7 @@ export class TaskComponent implements OnInit {
   textColorStyle: Record<string, string> = {};
 
   setTextColorStyle() {
-    switch (this.task.state) {
+    switch (this.task?.state) {
       case TaskStateEnum.TODO:
         this.textColorStyle = { color: 'red' };
         break;
@@ -26,10 +28,6 @@ export class TaskComponent implements OnInit {
         this.textColorStyle = { color: 'green' };
         break;
     }
-  }
-
-  constructor() {
-    this.task = new Task();
   }
 
   ngOnInit() {

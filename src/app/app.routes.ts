@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { MainTaskComponent } from './main-task/main-task.component';
-import { TaskComponent } from './task/task.component';
-import { TaskListComponent } from './task-list/task-list.component';
+import { MainTaskComponent } from './components/main-task/main-task.component';
+import { TaskComponent } from './components/task/task.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 export const routes: Routes = [
   { path: 'main-task', component: MainTaskComponent },
