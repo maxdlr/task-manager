@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskList } from '../../../model/TaskList';
-import { Task } from '../../../model/Task';
-import { TaskStateEnum } from '../../../model/taskStateEnum';
+import { TaskList } from '../../../../model/TaskList';
+import { Task } from '../../../../model/Task';
+import { TaskStateEnum } from '../../../../model/taskStateEnum';
 import { TaskComponent } from '../task/task.component';
 
 @Component({
   selector: 'app-task-list',
-  standalone: true,
-  imports: [CommonModule, TaskComponent],
+  // standalone: true,
+  // imports: [CommonModule, TaskComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss',
 })

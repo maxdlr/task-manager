@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'formatDate',
-  standalone: true,
+  // standalone: true,
 })
 export class FormatDatePipe implements PipeTransform {
   private toTwoDigits = (number: number): string | number =>

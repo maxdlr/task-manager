@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'toUpperCase',
-  standalone: true,
+  // standalone: true,
 })
 export class ToUpperCasePipe implements PipeTransform {
   transform(value: string, title: boolean = false): string {
