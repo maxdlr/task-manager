@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskStateEnum} from "../../model/taskStateEnum";
+import {Task} from "../../model/Task";
 
 @Component({
   selector: 'app-task',
@@ -9,17 +10,9 @@ import {TaskStateEnum} from "../../model/taskStateEnum";
   styleUrl: './task.component.scss'
 })
 export class TaskComponent implements OnInit {
-
-  title: string | undefined = undefined
-  description: string | undefined = undefined
-  state: TaskStateEnum | undefined = undefined
-
-  constructor() {
-    this.title = 'my task title';
-    this.description = 'my task description';
-    this.state = TaskStateEnum.IN_PROGRESS;
-  }
+  task: Task | undefined = undefined;
 
   ngOnInit() {
+    this.task = new Task();
   }
 }
