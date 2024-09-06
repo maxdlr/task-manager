@@ -1,0 +1,21 @@
+<div style="padding: 0 30px">
+  <h1>Tâches</h1>
+</div>
+<div style="border: black solid 1px; padding: 30px; border-radius: 40px;">
+  <h2>Tâches actuelles</h2>
+  @for (task of taskListCurrent.tasks; track task.title) {
+    <app-task
+      [task]="task"
+    />
+    <hr>
+  }
+</div>
+<div style="border: black solid 1px; padding: 30px; border-radius: 40px;">
+  <h2>Tâches terminées</h2>
+  @for (task of taskListArchived.tasks; track task.title) {
+    <app-task
+      [task]="task"
+    />
+    <hr>
+  }
+</div>

@@ -1,0 +1,9 @@
+<div [ngStyle]="textColorStyle">
+  <h1>
+    {{ task.title | toUpperCase: true }}
+  </h1>
+  <p><small>{{ task.creationDate | formatDate }}</small> - <strong>{{ task.state }}</strong></p>
+  <p>
+    {{ task.description | toUpperCase: true }}
+  </p>
+</div>
