@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskList } from '../../../../model/TaskList';
 import { TaskStateEnum } from '../../../../model/taskStateEnum';
-import { ByStatusTaskListService } from '../../services/by-status-task-list/by-status-task-list.service';
+import { TaskFacadeService } from '../../facade/task-facade.service';
 
 @Component({
   selector: 'app-task-list',
@@ -11,16 +11,19 @@ import { ByStatusTaskListService } from '../../services/by-status-task-list/by-s
 export class TaskListComponent implements OnInit {
   taskListCurrent: TaskList = new TaskList([]);
   taskListArchived: TaskList = new TaskList([]);
-  taskListByStatusProvider: ByStatusTaskListService =
-    new ByStatusTaskListService();
+  taskFacade: TaskFacadeService = new TaskFacadeService();
+
+  private includeTasksByStatus(status: TaskStateEnum, taskList: TaskList) {
+    this.taskFacade.getByStatus(status).subscribe((tasks) => {
+      for (const task of tasks.filter((task) => task.state === status)) {
+        taskList.add(task);
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.taskListCurrent.tasks = [
-      ...this.taskListByStatusProvider.get(TaskStateEnum.TODO).tasks,
-      ...this.taskListByStatusProvider.get(TaskStateEnum.IN_PROGRESS).tasks,
-    ];
-    this.taskListArchived = this.taskListByStatusProvider.get(
-      TaskStateEnum.DONE,
-    );
+    this.includeTasksByStatus(TaskStateEnum.TODO, this.taskListCurrent);
+    this.includeTasksByStatus(TaskStateEnum.IN_PROGRESS, this.taskListCurrent);
+    this.includeTasksByStatus(TaskStateEnum.DONE, this.taskListArchived);
   }
 }

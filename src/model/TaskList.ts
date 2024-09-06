@@ -6,4 +6,8 @@ export class TaskList {
   constructor(tasks: Task[]) {
     this.tasks = tasks;
   }
+
+  public add(task: Task) {
+    this.tasks.push(task);
+  }
 }
