@@ -1,9 +1,9 @@
 import { Task } from './Task';
 
 export class TaskList {
-  taskList: Task[];
+  tasks: Task[];
 
-  constructor(taskList: Task[]) {
-    this.taskList = taskList;
+  constructor(tasks: Task[]) {
+    this.tasks = tasks;
   }
 }
