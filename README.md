@@ -732,6 +732,62 @@ export class TaskList {
 }
 ```
 
+### Final Files structure
+```bash
+├── app
+│   ├── app.component.html
+│   ├── app.component.scss
+│   ├── app.component.spec.ts
+│   ├── app.component.ts
+│   ├── app.config.ts
+│   ├── app.routes.ts
+│   ├── pipes
+│   │   ├── case
+│   │   │   ├── to-upper-case.pipe.spec.ts
+│   │   │   └── to-upper-case.pipe.ts
+│   │   └── date-format
+│   │       ├── date-format.pipe.spec.ts
+│   │       └── date-format.pipe.ts
+│   └── tasks
+│       ├── components
+│       │   ├── main-task
+│       │   │   ├── main-task.component.html
+│       │   │   ├── main-task.component.scss
+│       │   │   ├── main-task.component.spec.ts
+│       │   │   └── main-task.component.ts
+│       │   ├── task
+│       │   │   ├── task.component.html
+│       │   │   ├── task.component.scss
+│       │   │   ├── task.component.spec.ts
+│       │   │   └── task.component.ts
+│       │   └── task-list
+│       │       ├── task-list.component.html
+│       │       ├── task-list.component.scss
+│       │       ├── task-list.component.spec.ts
+│       │       └── task-list.component.ts
+│       ├── facade
+│       │   ├── task-facade.service.spec.ts
+│       │   └── task-facade.service.ts
+│       ├── interface
+│       │   └── task-facade-interface.ts
+│       ├── services
+│       │   ├── by-status-task-list
+│       │   │   ├── by-status-task-list.service.spec.ts
+│       │   │   └── by-status-task-list.service.ts
+│       │   └── crud-task-list
+│       │       ├── crud-task-list.service.spec.ts
+│       │       └── crud-task-list.service.ts
+│       ├── tasks.module.ts
+│       └── tasks-routing.module.ts
+├── index.html
+├── main.ts
+├── model
+│   ├── TaskList.ts
+│   ├── taskStateEnum.ts
+│   └── Task.ts
+└── styles.scss
+```
+
 
 
 
